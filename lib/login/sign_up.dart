@@ -29,11 +29,13 @@ class _SignUpState extends State<SignUp> {
         email: _email.text,
         password: _password.text,
       );
+      String userId = FirebaseAuth.instance.currentUser?.uid ?? '';
       await users.add({
+        'userId': userId,
         'fullname': _fullname.text,
         'email': _email.text,
         'password': _password.text,
-        'username': _username.text
+        'username': _username.text,
       });
       print("User added");
     } catch (e) {

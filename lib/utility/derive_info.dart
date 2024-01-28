@@ -3,10 +3,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 Future<DocumentSnapshot<Map<String, dynamic>>> getCurrentUserDocument() async {
   String userId = FirebaseAuth.instance.currentUser?.uid ?? '';
-  print(userId);
-  final userDocumentCheck =
-      await FirebaseFirestore.instance.collection('users').doc(userId).get();
-  return userDocumentCheck;
+  final userDocumentCheck = await FirebaseFirestore.instance
+      .collection('users')
+      .where('userId', isEqualTo: userId)
+      .get();
+  if (userDocumentCheck.docs.isNotEmpty) {
+    // Assuming 'userId' is unique, retrieve the first matching document
+    return userDocumentCheck.docs.first;
+  } else {
+    // Handle the case when the document is not found
+    return FirebaseFirestore.instance.doc('users/NonExistentDocId').get();
+  }
 }
 
 // //fulname and username derived from here
