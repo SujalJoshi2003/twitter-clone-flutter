@@ -1,0 +1,109 @@
+SizedBox(
+              height: 15,
+            ),
+            Container(
+              // width: MediaQuery.of(context).size.width,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(20),
+              child: Text("Sign-in to your account",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  )),
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Container(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  style: TextStyle(color: Colors.white),
+                  controller: _username,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    hintText: 'Email',
+                    hintStyle: TextStyle(color: Colors.white),
+                  ),
+                )),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  style: TextStyle(color: Colors.white),
+                  obscureText: true,
+                  controller: _password,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    hintText: 'Password',
+                    hintStyle: TextStyle(color: Colors.white),
+                  ),
+                )),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                  shape: MaterialStateProperty.all<OutlinedBorder>(
+                      RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  )),
+                ),
+                child: Text('Sign-in',
+                    style: TextStyle(
+                      color: Colors.black,
+                    )),
+              ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ForgotPassword()),
+                );
+              },
+              child: const Text(
+                'Forgot Password',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            SizedBox(
+              height: 100,
+            ),
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(15),
+              child: Text("Don't have an account",
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20.0,
+                  )),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignUp()),
+                );
+              },
+              child: const Text(
+                'Sign-up',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ],
+        )));
