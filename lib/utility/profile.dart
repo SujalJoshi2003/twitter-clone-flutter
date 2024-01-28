@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:twitter_clone/utility/derive_info.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+import 'package:twitter_clone/utility/upload_image.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -10,6 +13,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   Map<String, String> store = {};
+
   @override
   void initState() {
     super.initState();
@@ -46,7 +50,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   color: Colors.white,
                 ),
                 ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      ImageUtil.pickImage();
+                    },
                     child: Text(
                       "Edit Profile Picture",
                     ))

@@ -6,6 +6,8 @@ import 'package:twitter_clone/drawer/settings.dart';
 import 'package:twitter_clone/utility/make_tweet.dart';
 import 'package:twitter_clone/utility/profile.dart';
 import 'package:twitter_clone/Navigation/custom_navigation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:twitter_clone/screens/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -63,15 +65,22 @@ class _HomeScreenState extends State<HomeScreen> {
         child: ListView(
           children: <Widget>[
             DrawerHeader(
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                ),
-                child: Center(
-                  child: Text(
-                    "Soon",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )),
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.person,
+                        color: Colors.white,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
             ListTile(
               title: Text(
                 'Profile',
